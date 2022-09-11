@@ -1,0 +1,6 @@
+betterdiscordctl
+pokemon-colorscripts-git
+samrewritten-git
+ttf-iosevka-term-slab
+xivlauncher-git
+yay
