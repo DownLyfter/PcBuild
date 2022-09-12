@@ -1,9 +1,5 @@
 #/bin/bash
-echo "Starting package install"
 startdir=$(pwd)
-echo "Installing pacman pacakges."
-yes |sudo pacman -S $(cat package.txt) 
-echo "Finished installing pacman packages."
 mkdir ~/GitClones
 cd ~/GitClones
 echo "Cloning Repositories"
@@ -12,9 +8,12 @@ git clone https://github.com/DownLyfter/DotFiles.git
 cd yay 
 yes | makepkg -si
 echo "Installed yay, configurig config files"
+echo "Installing pacman pacakges."
+yes |sudo pacman -Syu $(cat package.txt) 
+echo "Finished installing pacman packages."
 cd $startdir
 sudo systemctl enable $(cat services.txt)
-cd ../DotFiles
+cp ../DotFiles
 cp pacman.conf /etc/pacman.conf
 mkdir ~/.config	
 mv * -r ~/.config
